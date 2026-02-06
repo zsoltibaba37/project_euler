@@ -52,6 +52,7 @@ grid=[
 ddr = 0  # diagonal right down
 ddl = 0  # diagonal right up
 vd = 0   # vertically down
+h = 0    # horizontally
 Result = 0 # 
 
 R = 0
@@ -85,6 +86,7 @@ for r in range(19,2,-1):
 if ddl > Result:
     Result = ddl
 
+R = 0
 for r in range(0,17):
     for c in range(0,20):
 #        print(grid[r][c])
@@ -98,6 +100,21 @@ for r in range(0,17):
 #print(vd)
 if vd > Result:
     Result = vd
+
+R = 0
+for r in range(0,20):
+    for c in range(0,17):
+        print(grid[r][c])
+        print(grid[r][c+1])
+        print(grid[r][c+2])
+        print(grid[r][c+3])
+
+        R = (grid[r][c]) * (grid[r][c+1]) * (grid[r][c+2]) * (grid[r][c+3])
+        if R > h:
+            h = R
+#print(vd)
+if h > Result:
+    Result = h
 
 print(Result)
 
