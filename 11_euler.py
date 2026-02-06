@@ -104,10 +104,10 @@ if vd > Result:
 R = 0
 for r in range(0,20):
     for c in range(0,17):
-        print(grid[r][c])
-        print(grid[r][c+1])
-        print(grid[r][c+2])
-        print(grid[r][c+3])
+#        print(grid[r][c])
+#        print(grid[r][c+1])
+#        print(grid[r][c+2])
+#        print(grid[r][c+3])
 
         R = (grid[r][c]) * (grid[r][c+1]) * (grid[r][c+2]) * (grid[r][c+3])
         if R > h:
