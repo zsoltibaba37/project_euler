@@ -17,21 +17,28 @@ The solution from:
 https://github.com/milcsu09/compiler-x86_64/blob/main/euler/problem12.txt
 
 """
+from numba import njit
 
-from math import isqrt
+@njit
+def isqrt_numba(n):
+    x = n
+    y = (x + 1) // 2
+    while y < x:
+        x = y
+        y = (x + n // x) // 2
+    return x
 
+@njit
 def Div(n):
     d = 0
-    r = isqrt(n)
-
-    for i in range(1, r):
+    r = isqrt_numba(n)
+    for i in range(1, r+1):
         if n % i == 0:
-            if n / i == i:
+            if i * i == n:
                 d += 1
             else:
                 d += 2
     return d
-
 
 t = 1
 i = 2
